@@ -1,0 +1,57 @@
+package multimodule.activty.app;
+
+import org.apache.commons.lang3.math.NumberUtils;
+import multimodule.activty.service.Operations;
+import java.util.*;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        Operations op = new Operations();
+	boolean cont = op.initialize();
+
+	if(cont ==true){
+			System.out.println(" [1] Print \n [2] Search \n [3] Edit \n [4] Sort \n [5] Exit " );
+		
+			try{
+				int choice = NumberUtils.toInt(userInput("Enter your Choice: "));
+			
+	
+				loop: while (choice != 5){
+					switch (choice){
+						case 1: op.print();
+						break;
+						case 2: 
+							String find = userInput("Search:");							
+							op.search(find);
+						break;
+						case 3: 
+							int row = NumberUtils.toInt(userInput("Enter Row: "));
+							int col = NumberUtils.toInt(userInput("Enter Column: "));
+							Operations.edit(row, col);
+						break;
+						case 4: op.sort();
+						break;
+						case 5:
+						break loop;
+						default:
+							System.out.println("Not In the choices!");
+						break;			
+					}//switch
+					System.out.println("\n [1] Print \n [2] Search \n [3] Edit \n [4] Sort \n [5] Exit " );
+					choice = NumberUtils.toInt(userInput("Enter your Choice: "));		
+				}//loop: while
+			}catch(NumberFormatException e){
+				System.out.println("Invalid Input!");
+			}
+
+	}
+    }
+    public static String userInput(String message){
+	System.out.println(message);
+	Scanner scan = new Scanner(System.in);
+	String input = scan.next();
+	return input;
+    }
+}

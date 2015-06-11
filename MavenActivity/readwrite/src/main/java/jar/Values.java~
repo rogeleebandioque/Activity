@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+
+class Values implements Comparable<Values>{
+	public String value1;
+	public String value2;
+	
+	public Values(String val1, String val2){
+		value1 = val1;
+		value2 = val2;
+	}
+	public String getComparison(){
+		return value1 + value2;
+	}
+
+	public int compareTo(Values val){
+      		return (this.getComparison().toUpperCase()).compareTo(val.getComparison().toUpperCase());
+  	}
+/*
+	public static Comparator<Values> ValuesComparator = new Comparator<Values>(){
+		public int compare (Values val1, Values val2){
+			String v1 = val1.getComparison().toUpperCase();
+			String v2 = val2.getComparison().toUpperCase();
+			return v1.compareTo(v2);
+		}
+	};*/
+}
