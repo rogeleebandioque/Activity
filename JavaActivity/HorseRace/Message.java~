@@ -1,0 +1,12 @@
+public class Message{
+
+	public static int count=0;
+	public Message(){
+		if(count==5){
+			Alert alert = new Alert();		
+		alert.start();
+		}
+	}
+}
+
+
